@@ -1,0 +1,34 @@
+{% extends "header.html" %}
+{% block body %}
+
+    {% if message %}
+    <h1 class="alert alert-danger">{{message}}</h1>
+    {% endif %}
+    <div class="center">
+        <h1>SEARCH</h1>
+        <form action="/" method="POST">
+          <div class="inputbox">
+            <input type="text" name='employeeId' placeholder="Enter ID">
+            <span>ID</span>
+          </div>
+          <div class="inputbox">
+            <input type="submit" value="Search">
+          </div>
+        </form>
+      </div>
+ 
+    <br>
+    <table>
+        <th>
+            <td>Name</td>
+            <td>DEPARTMENT NAME</td>
+        </th>
+        
+        <tr>
+            <td></td>
+            <td>{{employeeName}}</td>
+            <td>{{departmentName}}</td>
+        </tr>
+    </table>
+
+{% endblock %}

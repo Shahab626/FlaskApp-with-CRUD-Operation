@@ -1,0 +1,16 @@
+{% extends "header.html" %}
+{% block body %}
+    <div class="center">
+        <h1>UPDATE DEPARTMENT</h1>
+        <form action="/updateDep/{{department.departmentId}}" method="POST">
+          <div class="inputbox">
+            <input type="text" name='departmentName' value={{department.departmentname}}>
+            <span>Department Name</span>
+          </div>
+          <div class="inputbox">
+            <input type="submit" value="Update">
+          </div>
+        </form>
+      </div>
+
+{% endblock %}

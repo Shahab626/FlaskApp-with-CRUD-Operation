@@ -1,0 +1,39 @@
+{% extends "header.html" %}
+{% block body %}
+<div class="center">
+    <h1>ADD DEPARTMENT</h1>
+    <form action="/addDepartment" method="POST">
+      <div class="inputbox">
+        <input type="text" required="required" name='departmentId' placeholder="Enter Department ID">
+        
+      </div>
+      <div class="inputbox">
+        <input type="text" name='departmentName' placeholder="Enter Department Name">
+        <span>Department Name</span>
+      </div>
+      <div class="inputbox">
+        <input type="submit" value="Insert">
+      </div>
+    </form>
+  </div>
+    
+    <hr>
+    <table>
+        <th>
+            <td>DEPARTMENT ID</td>
+            <td>DEPARTMENT NAME</td>
+            <td>UPDATE</td>
+            <td>DELETE</td>
+        </th>
+        {% for department in departments %}
+        <tr>
+            <td></td>
+            <td>{{department.departmentId}}</td>
+            <td>{{department.departmentname}}</td>
+            <td><a href="/updateDep/{{department.departmentId}}" class='btn'>Update</a></td>
+            <td><a href="/deleteDep/{{department.departmentId}}" class='btn'>Delete</a></td>
+
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

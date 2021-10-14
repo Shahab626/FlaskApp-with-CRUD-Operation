@@ -1,0 +1,44 @@
+{% extends "header.html" %}
+{% block body %}
+
+    <div class="center">
+        <h1>ADD EMPLOYEE</h1>
+        <form action="/addEmployee" method="POST">
+          <div class="inputbox">
+            <input type="text" required="required" name='employeeId' placeholder="Enter ID">
+            <!-- <span>ID</span> -->
+          </div>
+          <div class="inputbox">
+            <input type="text" name='employeeName' placeholder="Enter Name">
+            <span>EmployeeName</span>
+          </div>
+          <div class="inputbox">
+            <input type="text" name='departmentId' placeholder="Enter DepartmentId">
+            <span>DepartmentId</span>
+          </div>
+          <div class="inputbox">
+            <input type="submit" value="Insert">
+          </div>
+        </form>
+      </div>
+    <table>
+        <th>
+            <td>ID</td>
+            <td>NAME</td>
+            <td>DEPARTMENT ID</td>
+            <td>UPDATE</td>
+            <td>DELETE</td>
+        </th>
+        {% for employee in employees %}
+        <tr>
+            <td></td>
+            <td>{{employee.id}}</td>
+            <td>{{employee.name}}</td>
+            <td>{{employee.departmentId}}</td>
+            <td><a href="/update/{{employee.id}}" class='btn'>Update</a></td>
+            <td><a href="/delete/{{employee.id}}" class='btn'>Delete</a></td>
+
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
